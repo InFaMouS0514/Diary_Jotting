@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Diary</title>
+    <style>
+body, h2,h3,h1{
+    margin: 0;
+    padding: 0;
+    background-image:url('/static/Background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+ }
+ 
+ header{
+    background-color: #282828;
+    color: #000000;
+    padding: 0.5rem;
+    margin-bottom: 10px;
+ }
+
+ul{
+    width: auto; 
+    float: right;
+    margin-top: -22px;
+}
+
+li{
+    display: inline-block;
+    padding: 0px 40px;
+}
+
+ .wrapper{
+    max-width: 500px;
+    margin: 0 auto;
+ }
+ 
+ .card{
+    padding: 0.5rem 1rem;
+    border: 1px solid #eee; 
+    border-radius: 3px;
+    margin: .3rem 0;
+ }
+ 
+ .txt-center{
+    text-align: center;
+ }
+ 
+ textarea{
+    width: 100%;
+ }
+ 
+ text-l{
+    text-align: left;
+ }
+ 
+ p{
+    color: rgb(62,62,62);
+    font-family: Arial,Helvetica, sans-serif;
+ }
+ 
+ small{
+    color: #ccc;
+ }
+ </style>
+</head>
+<body>
+       <header>
+       <h2> My Diary </h2>
+       <nav>
+       <ul>
+         <li><a href="Home.html">Home</a></li>
+         <li><a href="diary.html">Diary</a></li>
+         <li><a href="AboutUs.html">About us</a></li>
+         <li><a href="Music.html">Music</a></li>
+       </ul>
+       </nav>
+       </header>
+       <div class="wrapper txt-center">
+       <textarea id="txt" rows="3"></textarea>
+       <div class="text-l">
+       <button onclick="getRs()">Save</button>
+       </div>
+     <div id="rs" class="wrapper"></div>
+     <script>
+function _(id){
+    return document.getElementById(id)
+}
+
+function getRs(){
+    var txt = document.getElementById("txt").value;
+
+    const d = new Date()
+    document.getElementById('rs').innerHTML += '<div class="card">'+txt + '<br></div>';
+
+   
+}
+</script>
+</body>
+</html>

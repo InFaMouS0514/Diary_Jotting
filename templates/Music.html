@@ -1,0 +1,125 @@
+<html>
+<head>
+     <title>Music</title>
+     <style>
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.container{
+    height: 100vh;
+    width: 100%;
+    background-image:url('/static/Music.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.navbar{
+    width: 88%;
+    margin: auto;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 140px;
+    cursor: pointer;    
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: #5f5f5f;
+    font-size: 15px; 
+}
+
+.content{
+    width: 100%;
+    position: absolute;
+    top: 30%
+}
+
+.left-col{
+    margin-left: 10%;
+    margin-top: 8%;
+}
+
+.left-col h1{
+    font-size: 90px;
+    color: #fff;
+    line-height: 120px;
+    float: left; 
+}
+
+.right-col{
+    float: right;
+    margin-right: 6%;
+    margin-top: 120px; 
+    display: flex;
+    align-items: center;
+}
+
+.right-col p{
+    font-size: 18px;
+    color: 5f5f5f;
+    font-weight: 400;
+    margin-right: 15px;
+}
+
+#icon{
+    width: 80px;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+     <div class="container">
+          <div class="navbar">
+               <img src="{{url_for('static', filename='logo.jpg')}}" class="logo">
+               <ul>
+                  <li><a href="Home.html">Home</a></li>
+                  <li><a href="Diary.html">Diary</a></li>
+                  <li><a href="AboutUs.html">About Us</a></li>
+                  <li><a href="Music.html">Music</a></li>
+               </ul>
+          </div>
+          <div class="content">
+               <div class="left-col">
+                    <h1>THE REAL SOUND</h1>
+               </div>
+               <div class="right-col">
+                    <p> Click Here To Listen </p>
+                    <img src="{{url_for('static', filename='play.jpg')}}" id="icon">
+               </div>
+          </div>
+     </div>
+     <audio id="mySong">
+          <source src="../static/song.mp3" type="audio/mp3">
+     </audio>
+ <script>
+    var mySong = document.getElementById("mySong");
+    var icon = document.getElementById("icon");
+    
+    icon.onclick = function(){
+         if(mySong.paused){
+            mySong.play();
+            icon.src = "../static/pause.png"
+         }else{
+            mySong.pause();
+            icon.src = "../static/play.jpg";
+         }
+         
+    }
+ </script>
+</body>
+</html>
